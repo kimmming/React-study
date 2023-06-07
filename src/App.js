@@ -40,6 +40,12 @@ function App() {
                 따봉변경(ddabong);
                 }}>💪</span> {따봉[i]} </h4>
               <p>2월 17일 발행</p>
+              <button onClick={()=>{
+                let copy =[...글제목];
+                copy.splice(i,1)
+                글제목변경(copy)
+              }}>삭제</button>
+
             </div>)
         })
       }
@@ -49,13 +55,14 @@ function App() {
           console.log(입력값);
       }}></input>
       <button onClick={()=>{
-        
-      }}></button>
+        let copy = [...글제목];
+        copy.unshift(입력값);
+        글제목변경(copy);
+      }}>글 발행</button>
 
       {
         modal === true ? <Modal color={'yellow'} 글제목={글제목} 글제목변경={글제목변경}></Modal> : null
       }
-
 
     </div>
   );
